@@ -151,16 +151,28 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\Input.cpp" />
-    <ClCompile Include="..\..\..\..\..\Downloads\Primitives.cpp" />
+    <ClCompile Include="Body.cpp" />
+    <ClCompile Include="CircleShape.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ParticleTest.cpp" />
+    <ClCompile Include="Primitives.cpp" />
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="Time.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\Input.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Primitives.h" />
-    <ClInclude Include="..\..\..\..\..\Downloads\Random.h" />
+    <ClInclude Include="Body.h" />
+    <ClInclude Include="CircleShape.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="ParticleTest.h" />
+    <ClInclude Include="PhysicsObject.h" />
+    <ClInclude Include="Primitives.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Shape.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

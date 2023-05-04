@@ -1,4 +1,5 @@
 #include "Graphics.h"
+#include "Primitives.h"
 #include <SDL.h>
 
 Graphics::Graphics()
@@ -29,7 +30,7 @@ void Graphics::CreateWindow(const char* title, int x, int y)
 
 void Graphics::Clear()
 {
-    SDL_SetRenderDrawColor(m_renderer, 200, 0, 180, 255);
+    //SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
     SDL_RenderClear(m_renderer);
 }
 
@@ -51,7 +52,13 @@ void Graphics::SetColor(const glm::vec4& color)
 
 glm::ivec4 Graphics::ConvertColor(const glm::vec4& color)
 {
-    return glm::ivec4();
+    glm::ivec4 icolor;
+    icolor.r = (int)(color.r * 255);
+    icolor.g = (int)(color.g * 255);
+    icolor.b = (int)(color.b * 255);
+    icolor.a = (int)(color.a * 255);
+
+    return icolor;
 }
 
 void Graphics::DrawPoint(const glm::ivec2& point, const glm::vec4& color)
@@ -62,13 +69,19 @@ void Graphics::DrawPoint(const glm::ivec2& point, const glm::vec4& color)
 
 void Graphics::DrawLine(const glm::ivec2& start, const glm::ivec2& end, const glm::vec4& color)
 {
-
+    glm::ivec4 icolor = ConvertColor(color);
+    SetColor(icolor);
+    SDL_RenderDrawLine(m_renderer, start.x, start.y, end.x, end.y);
 }
 
 void Graphics::DrawCircle(const glm::ivec2& point, int radius, const glm::vec4& color)
 {
+    glm::ivec4 icolor = ConvertColor(color);
+    circleRGBA(m_renderer, point.x, point.y, radius, icolor.r, icolor.g, icolor.b, icolor.a);
 }
 
 void Graphics::DrawFilledCircle(const glm::ivec2& point, int radius, const glm::vec4& color)
 {
+    glm::ivec4 icolor = ConvertColor(color);
+    filledCircleRGBA(m_renderer, point.x, point.y, radius, icolor.r, icolor.g, icolor.b, icolor.a);
 }
