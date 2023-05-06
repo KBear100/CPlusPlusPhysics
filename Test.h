@@ -3,6 +3,7 @@
 #include "Input.h"
 #include "Time.h"
 #include "Random.h"
+#include "World.h"
 
 class Test
 {
@@ -24,4 +25,5 @@ protected:
 	Graphics* m_graphics{ nullptr };
 	Input* m_input{ nullptr };
 	Time* m_time{ nullptr };
+	World* m_world{ nullptr };
 };
