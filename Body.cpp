@@ -1,4 +1,5 @@
 #include "Body.h"
+#include "Integrator.h"
 
 void Body::ApplyForce(const glm::vec2& force)
 {
@@ -7,9 +8,8 @@ void Body::ApplyForce(const glm::vec2& force)
 
 void Body::Step(float dt)
 {
-	glm::vec2 acceleration = (force * invMass);
-
-	velocity += acceleration * dt;
-	position += velocity * dt;
-	velocity *= (1.0f / (1.0f + (2.0f * dt)));
+	Integrator::ExplicitEuler(*this, dt);
+	ClearForce();
+	// damping
+	velocity *= (1.0f / (1.0f + (damping * dt)));
 }
