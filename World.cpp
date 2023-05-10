@@ -1,4 +1,7 @@
 #include "World.h"
+#include "PhysicsObject.h"
+
+glm::vec2 World::gravity{ 0, 9.8f };
 
 World::~World()
 {

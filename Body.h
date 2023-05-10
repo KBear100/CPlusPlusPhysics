@@ -4,16 +4,21 @@
 struct Body
 {
 public:
-	Body(const glm::vec2& position, const glm::vec2& velocity) :
-		position{ position },
-		velocity{ velocity }
-	{}
+	enum Type
+	{
+		STATIC,
+		KINEMATIC,
+		DYNAMIC
+	};
 
-	Body(const glm::vec2& position, const glm::vec2& velocity, float mass) :
+public:
+	Body(const glm::vec2& position, const glm::vec2& velocity = { 0, 0 }, float mass = 1, Type type = Type::DYNAMIC) :
 		position{ position },
 		velocity{ velocity },
-		mass{ mass }
+		mass{ mass },
+		type{ type }
 	{
+		if (type == STATIC) mass = 0;
 		invMass = (mass == 0) ? 0 : 1 / mass;
 	}
 
@@ -23,11 +28,14 @@ public:
 	void ClearForce() { force = glm::vec2{ 0, 0 }; }
 
 public:
+	Type type{ Type::DYNAMIC };
+
 	glm::vec2 position{ 0, 0 };
 	glm::vec2 velocity{ 0, 0 };
 	glm::vec2 force{ 0, 0 };
 
+	float gravityScale{ 1 };
+	float damping{ 0 };
 	float mass{ 1 };
 	float invMass{ 1 };
-	float damping{ 0 };
 };

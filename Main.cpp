@@ -1,10 +1,11 @@
 #include "ParticleTest.h"
+#include "ForceTest.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-    Test* test = new ParticleTest();
+    Test* test = new ForceTest();
     test->Initialize();
     while (!test->IsQuit())
     {
