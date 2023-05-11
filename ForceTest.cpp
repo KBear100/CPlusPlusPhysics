@@ -1,12 +1,14 @@
 #include "ForceTest.h"
-#include "PhysicsObject.h"
+#include "Body.h"
 #include "CircleShape.h"
+#include "GravitationalGenerator.h"
 
 void ForceTest::Initialize()
 {
 	Test::Initialize();
 
-	//World::gravity = { 4, 9.8f };
+	auto forceGenerator = new GravitationalGenerator(200);
+	m_world->AddForceGenerator(forceGenerator);
 }
 
 void ForceTest::Update()
@@ -15,15 +17,14 @@ void ForceTest::Update()
 
 	if (m_input->GetMouseButton(0))
 	{
-		glm::vec2 velocity{ 0, 0 };// = randomUnitCircle() * randomf(100, 200);
+		glm::vec2 velocity = randomUnitCircle() * randomf(100, 200);
 
 		float size = randomf(1, 8);
-		auto body = new Body(m_input->GetMousePosition(), velocity, size);
-		auto po = new PhysicsObject(body, new CircleShape(size * 2, { randomf(), randomf(), randomf(), 1 }));
-		po->GetBody()->damping = 1;
-		po->GetBody()->gravityScale = 30;
+		auto body = new Body(new CircleShape(randomf(5, 20), { randomf(), randomf(), randomf(), 1 }), m_input->GetMousePosition(), velocity);
+		body->damping = 1;
+		body->gravityScale = 30;
 
-		m_world->AddPhysicsObject(po);
+		m_world->AddBody(body);
 	}
 }
 
