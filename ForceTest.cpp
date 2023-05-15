@@ -7,7 +7,7 @@ void ForceTest::Initialize()
 {
 	Test::Initialize();
 
-	auto forceGenerator = new GravitationalGenerator(200);
+	auto forceGenerator = new GravitationalGenerator(400);
 	m_world->AddForceGenerator(forceGenerator);
 }
 
@@ -22,7 +22,7 @@ void ForceTest::Update()
 		float size = randomf(1, 8);
 		auto body = new Body(new CircleShape(randomf(5, 20), { randomf(), randomf(), randomf(), 1 }), m_input->GetMousePosition(), velocity);
 		body->damping = 1;
-		body->gravityScale = 30;
+		body->gravityScale = 0;
 
 		m_world->AddBody(body);
 	}

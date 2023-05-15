@@ -5,9 +5,9 @@
 class ForceGenerator
 {
 public:
-	ForceGenerator(class Body* body = nullptr) : m_body{ body } {}
+	ForceGenerator(struct Body* body = nullptr) : m_body{ body } {}
 
-	virtual void Apply(std::list<class Body*> bodies) = 0;
+	virtual void Apply(std::vector<struct Body*> bodies) = 0;
 	virtual void Draw(class Graphics* graphics);
 
 protected:
