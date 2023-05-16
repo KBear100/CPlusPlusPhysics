@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include "Integrator.h"
 #include "World.h"
+#include "CircleShape.h"
 
 void Body::ApplyForce(const glm::vec2& force)
 {
@@ -25,4 +26,13 @@ void Body::Step(float dt)
 void Body::Draw(class Graphics* graphics)
 {
 	shape->Draw(graphics, position);
+}
+
+bool Body::Intersects(Body* body)
+{
+	glm::vec2 direction = body->position - this->position;
+	float distance = glm::length(direction);
+	float radius = static_cast<CircleShape*>(this->shape)->radius + static_cast<CircleShape*>(body->shape)->radius;
+
+	return distance <= radius;
 }

@@ -13,6 +13,4 @@ public:
 
 public:
 	float radius{ 1 };
-
-	
 };

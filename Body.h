@@ -28,6 +28,7 @@ public:
 	void Draw(class Graphics* graphics);
 
 	void ClearForce() { force = glm::vec2{ 0, 0 }; }
+	bool Intersects(struct Body* body);
 
 public:
 	class Shape* shape{ nullptr };
