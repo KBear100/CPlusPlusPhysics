@@ -32,7 +32,7 @@ bool Body::Intersects(Body* body)
 {
 	glm::vec2 direction = body->position - this->position;
 	float distance = glm::length(direction);
-	float radius = static_cast<CircleShape*>(this->shape)->radius + static_cast<CircleShape*>(body->shape)->radius;
+	float radius = dynamic_cast<CircleShape*>(this->shape)->radius + dynamic_cast<CircleShape*>(body->shape)->radius;
 
 	return distance <= radius;
 }

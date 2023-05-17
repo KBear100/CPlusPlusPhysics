@@ -1,6 +1,6 @@
 //#define POINT_FORCE
-#define AREA_FORCE
-//#define DRAG_FORCE
+//#define AREA_FORCE
+#define DRAG_FORCE
 
 #include "ForceTest.h"
 #include "Body.h"
