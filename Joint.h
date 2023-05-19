@@ -5,7 +5,7 @@ struct Body;
 class Joint
 {
 public:
-	Joint(Body* bodyA, Body* bodyB, float stiffness, float restLenght);
+	Joint(Body* bodyA, Body* bodyB, float stiffness, float restLenght = 0);
 
 	void Step(float dt);
 	void Draw(class Graphics* graphics);

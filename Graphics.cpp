@@ -69,8 +69,7 @@ void Graphics::DrawPoint(const glm::ivec2& point, const glm::vec4& color)
 
 void Graphics::DrawLine(const glm::ivec2& start, const glm::ivec2& end, const glm::vec4& color)
 {
-    glm::ivec4 icolor = ConvertColor(color);
-    SetColor(icolor);
+    SetColor(color);
     SDL_RenderDrawLine(m_renderer, start.x, start.y, end.x, end.y);
 }
 

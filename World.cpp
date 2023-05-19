@@ -37,7 +37,7 @@ void World::Draw(Graphics* graphics)
 {
 	for (auto joint : m_joints) joint->Draw(graphics);
 	for (auto forceGenerator : m_forceGenerators) forceGenerator->Draw(graphics);
-	for (auto& body : m_bodies)	body->Draw(graphics);
+	for (auto body : m_bodies)	body->Draw(graphics);
 }
 
 void World::AddBody(Body* po)
