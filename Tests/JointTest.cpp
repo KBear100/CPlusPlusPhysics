@@ -1,8 +1,8 @@
 #include "JointTest.h"
-#include "CircleShape.h"
-#include "World.h"
-#include "Body.h"
-#include "Joint.h"
+#include "../Physics/Shapes/CircleShape.h"
+#include "../Physics/World.h"
+#include "../Physics/Body.h"
+#include "../Physics/Constraints/Joint.h"
 
 //#define CHAIN
 

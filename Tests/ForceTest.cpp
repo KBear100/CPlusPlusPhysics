@@ -3,12 +3,12 @@
 #define DRAG_FORCE
 
 #include "ForceTest.h"
-#include "Body.h"
-#include "CircleShape.h"
-#include "GravitationalGenerator.h"
-#include "PointForce.h"
-#include "AreaForce.h"
-#include "DragForce.h"
+#include "../Physics/Body.h"
+#include "../Physics/Shapes/CircleShape.h"
+#include "../Physics/Forces/GravitationalGenerator.h"
+#include "../Physics/Forces/PointForce.h"
+#include "../Physics/Forces/AreaForce.h"
+#include "../Physics/Forces/DragForce.h"
 
 void ForceTest::Initialize()
 {

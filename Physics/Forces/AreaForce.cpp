@@ -1,5 +1,5 @@
 #include "AreaForce.h"
-#include "Body.h"
+#include "../../Physics/Body.h"
 #include "glm/gtx/quaternion.hpp"
 
 void AreaForce::Apply(std::vector<struct Body*> bodies)

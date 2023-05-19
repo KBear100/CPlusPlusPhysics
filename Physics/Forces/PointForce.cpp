@@ -1,5 +1,5 @@
 #include "PointForce.h"
-#include "Body.h"
+#include "../../Physics/Body.h"
 
 void PointForce::Apply(std::vector<struct Body*> bodies)
 {
