@@ -43,4 +43,6 @@ public:
 	float damping{ 0 };
 	float mass{ 1 };
 	float invMass{ 1 };
+
+	float restitution{ 0.3f };
 };
