@@ -16,5 +16,5 @@ public:
 	virtual void Render() override;
 
 private:
-	class Body* m_anchor{ nullptr };
+	struct Body* m_anchor{ nullptr };
 };

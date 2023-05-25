@@ -31,6 +31,9 @@ void ForceTest::Initialize()
 	m_world->AddForceGenerator(forceGenerator);
 #endif
 
+	m_user = new Body(new CircleShape(1, { 0, 0, 1, 1 }), { 0, 0 }, { 0, 0 }, 1, Body::KINEMATIC);
+	m_world->AddBody(m_user);
+
 	/*auto forceGenerator = new GravitationalGenerator(400);
 	m_world->AddForceGenerator(forceGenerator);*/
 }
@@ -39,12 +42,16 @@ void ForceTest::Update()
 {
 	Test::Update();
 
+	glm::vec2 position = m_graphics->ScreenToWorld(m_input->GetMousePosition());
+	m_user->velocity = position - m_user->position;
+	m_user->position = position;
+
 	if (m_input->GetMouseButton(0))
 	{
 		glm::vec2 velocity = randomUnitCircle() * randomf(100, 200);
 
 		float size = randomf(1, 8);
-		auto body = new Body(new CircleShape(randomf(5, 20), { randomf(), randomf(), randomf(), 1 }), m_input->GetMousePosition(), velocity);
+		auto body = new Body(new CircleShape(randomf(0.1f, 1.0f), { randomf(), randomf(), randomf(), 1 }), position, velocity);
 		body->damping = 1;
 		body->gravityScale = 30;
 
@@ -60,5 +67,5 @@ void ForceTest::FixedUpdate()
 void ForceTest::Render()
 {
 	m_world->Draw(m_graphics);
-	m_graphics->DrawCircle(m_input->GetMousePosition(), 30, { randomf(), randomf(), randomf(), 1 });
+	//m_graphics->DrawCircle(m_input->GetMousePosition(), 30, { randomf(), randomf(), randomf(), 1 });
 }

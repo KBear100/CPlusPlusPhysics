@@ -11,5 +11,5 @@ public:
 	virtual void Render() override;
 
 protected:
-
+	struct Body* m_user{ nullptr };
 };

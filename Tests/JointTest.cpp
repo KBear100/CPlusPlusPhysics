@@ -4,7 +4,7 @@
 #include "../Physics/Body.h"
 #include "../Physics/Constraints/Joint.h"
 
-#define CHAIN
+//#define CHAIN
 
 void JointTest::Initialize()
 {
@@ -33,9 +33,9 @@ void JointTest::Initialize()
 
 	for (int i = 0; i < CHAIN_SIZE; i++)
 	{
-		auto bodyA = new Body (new CircleShape(20, { 1, 1, 1, 1 }), { 400, 300 }, { 0, 0 }, 1, Body::DYNAMIC);
+		auto bodyA = new Body (new CircleShape(0.5, { 1, 1, 1, 1 }), { 0, 0 }, { 0, 0 }, 1, Body::DYNAMIC);
 		bodyA->damping = BODY_DAMPING;
-		auto bodyB = new Body (new CircleShape(20, { 1, 1, 1, 1 }), { 500, 300 }, { 0, 0 }, 1, Body::DYNAMIC);
+		auto bodyB = new Body (new CircleShape(0.5, { 1, 1, 1, 1 }), { 0, 0 }, { 0, 0 }, 1, Body::DYNAMIC);
 		bodyB->damping = BODY_DAMPING;
 
 		m_world->AddBody(bodyA);
